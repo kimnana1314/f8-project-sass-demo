@@ -1,0 +1,136 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+//VD1
+// .card {
+//     width: 300px;
+//     padding: 20px;
+//     border: 2px solid #ccc;
+//     border-radius: 8px;
+//     .thumb {
+//         width: 100%;
+//     }
+//     .title {
+//         font-size: 22px;
+//         strong {
+//             color: red;
+//         }
+//     }
+//     .desc {
+//         font-size: 18px;
+//     }
+//     .btn-link {
+//         color: #666;
+//     }
+// }
+
+//VD2
+// .card {
+//     width: 300px;
+//     padding: 20px;
+//     border: 2px solid #ccc;
+//     border-radius: 8px;
+//     &-thumb {
+//         width: 100%;
+//     }
+//     &-title {
+//         font-size: 22px;
+//         strong {
+//             color: red;
+//         }
+//     }
+//     &-desc {
+//         font-size: 18px;
+//     }
+//     &-btn-link {
+//         color: #666;
+//     }
+// }
+//vd3
+.card {
+    width: 300px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+
+    &:hover &__title {
+        color: blue;
+    }
+    &:hover &__title::before {
+        color: orangered;
+    }
+    &--bottom {
+        margin-top: 100px;
+    }
+    &__thumb {
+        width: 100%;
+    }
+    &__title {
+        font-size: 22px;
+        &::before {
+            content: "1. ";
+        }
+    }
+    &__desc {
+        font-size: 18px;
+    }
+    &__btn-link {
+        color: #666;
+    }
+}
+
+$Primary-color: #3479f8;
+$Secondary-color: #6e757c;
+$Success-color: #4fa450;
+$Danger-color: #cc4648;
+$Warning-color: #f6c43d;
+$Info-color: #499fb6;
+.group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 50px;
+}
+
+%btn-base {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.btn-primary {
+    @extend %btn-base;
+    background: $Primary-color;
+}
+
+.btn-secondary {
+    @extend %btn-base;
+    background: $Secondary-color;
+}
+
+.btn-success {
+    @extend %btn-base;
+    background: $Success-color;
+}
+
+.btn-danger {
+    @extend %btn-base;
+    background: $Danger-color;
+}
+.btn-warning {
+    @extend %btn-base;
+    background: $Warning-color;
+}
+.btn-info {
+    @extend %btn-base;
+    background: $Info-color;
+}
